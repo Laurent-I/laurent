@@ -50,14 +50,14 @@ def write_to_csv(data):
         csv_writer.writerow([email, subject, message])
 
 
-# @app.route('/submit', methods=['GET', 'POST'])
-# def submit():
-#     if request.method == 'POST':
-#         try:
-#             data = request.form.to_dict()
-#             write_to_csv(data)
-#             return redirect('/thankyou.html')
-#         except:
-#             return 'Something went wrong. Please try again later'
-#     else:
-#         return 'Something went wrong'
+@app.route('/submit', methods=['GET', 'POST'])
+def submit():
+    if request.method == 'POST':
+        try:
+            data = request.form.to_dict()
+            write_to_csv(data)
+            return redirect('/thankyou.html')
+        except:
+            return 'Something went wrong. Please try again later'
+    else:
+        return 'Something went wrong'
